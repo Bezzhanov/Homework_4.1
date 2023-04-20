@@ -48,21 +48,25 @@ int main() {
 			intxt >> Apparts;
 			adress_arr[i] = Adress(City, Street, House, Apparts);
 
-			std::ofstream(outtxt);
-			outtxt.open("out.txt");
 
-			if (outtxt) {
-				for (int i = 0; i < count; ++i) {
-					adress_arr[i].get_output_address(outtxt);
-
-				}
-				outtxt.close();
-			}
-			else {
-				std::cout << "output file not found!" << std::endl;
-			}
 
 		}
+
+		std::ofstream(outtxt);
+		outtxt.open("out.txt");
+
+		if (outtxt) {
+			for (int i = 0; i < count; ++i) {
+				adress_arr[i].get_output_address(outtxt);
+
+			}
+			outtxt.close();
+		}
+		else {
+			std::cout << "output file not found!" << std::endl;
+		}
+		delete[] adress_arr;
+		adress_arr = nullptr;
 
 	}
 	else {
